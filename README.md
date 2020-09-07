@@ -42,9 +42,19 @@ will add the following binaries to the PATH:
 For example:
 
 ```bash
-$ hab pkg install core/node9 --binlink
+# hab pkg install core/node9 --binlink
 » Installing core/node9
 ☁ Determining latest version of core/node9 in the 'stable' channel
+↓ Downloading core/node9/9.0.0/20200812143256
+☛ Verifying core/node9/9.0.0/20200812143256
+✓ Installed core/node9/9.0.0/20200812143256
+★ Install of core/node9/9.0.0/20200812143256 complete with 7 new packages installed.
+» Binlinking npm from core/node9/9.0.0/20200812143256 into /bin
+★ Binlinked npm from core/node9/9.0.0/20200812143256 to /bin/npm
+» Binlinking node from core/node9/9.0.0/20200812143256 into /bin
+★ Binlinked node from core/node9/9.0.0/20200812143256 to /bin/node
+» Binlinking npx from core/node9/9.0.0/20200812143256 into /bin
+★ Binlinked npx from core/node9/9.0.0/20200812143256 to /bin/npx
 ```
 
 #### Using an example binary
