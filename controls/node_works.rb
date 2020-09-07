@@ -20,11 +20,12 @@ control 'core-plans-node-works' do
   end
   
   expected_node_version = plan_installation_directory.stdout.split("/")[5]
-  expected_npm_version = input('expected_npm_version', value: '6.13.4')
+  expected_npm_version = input('expected_npm_version', value: '5.5.1')
+  expected_npx_version = input('expected_npx_version', value: '9.6.0')
   {
     "node" => { pattern: "v#{expected_node_version}" },
     "npm" => { pattern: "#{expected_npm_version}" },
-    "npx" => { pattern: "#{expected_npm_version}" },
+    "npx" => { pattern: "#{expected_npx_version}" },
   }.each do |binary_name, version|
     command_full_path = File.join(plan_installation_directory.stdout.strip, "bin", binary_name)
     describe command("#{command_full_path} --version") do
