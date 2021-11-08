@@ -8,19 +8,19 @@ control 'core-plans-node-works' do
   title 'Ensure node works as expected'
   desc '
   Verify node by ensuring that its
-  (1) installation directory exists 
+  (1) installation directory exists
   (2) binaries return the expected version
   '
-  
+
   plan_installation_directory = command("hab pkg path #{plan_origin}/#{plan_name}")
   describe plan_installation_directory do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
   end
-  
+
   expected_node_version = plan_installation_directory.stdout.split("/")[5]
-  expected_npm_version = input('expected_npm_version', value: '5.5.1')
-  expected_npx_version = input('expected_npx_version', value: '9.6.0')
+  expected_npm_version = input('expected_npm_version', value: '5.6.0')
+  expected_npx_version = input('expected_npx_version', value: '9.7.1')
   {
     "node" => { pattern: "v#{expected_node_version}" },
     "npm" => { pattern: "#{expected_npm_version}" },
